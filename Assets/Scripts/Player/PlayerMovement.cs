@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("De sterkte van de zwaartekracht")]                                         public float Gravity = -9.81f;
     [Tooltip("De afstand van raycast om te checken of speler op de grond staat")]        public float GroundCheckDistance = 1.1f;
     
-    private const float _jumpVelocityMultiplier = -1.5f;
+    private const float _jumpVelocityMultiplier = -1.75f;
     private Vector3 _moveInput;
     private Vector3 _moveVelocity;
     private Vector3 _velocity;
