@@ -1,5 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class SecurityGuard : MonoBehaviour
 {
@@ -197,4 +200,13 @@ public class SecurityGuard : MonoBehaviour
     {
         _agent.destination = Player.position;
     }
+
+    private void OnCollisionEnter(Collision _Other)
+    {
+        if (_Other.gameObject.GetComponent<PlayerMovement>())
+        {
+            SceneManager.LoadScene("Lose");
+        }
+    }
+
 }
