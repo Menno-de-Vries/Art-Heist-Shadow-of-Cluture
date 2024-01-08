@@ -1,11 +1,9 @@
-using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Speler Instellingen")]
     [Tooltip("De snelheid waarmee de speler zich voort beweegt")]                        public float MoveSpeed = 5f;
-    [Tooltip("De variabel die de snelheid van lopen vermeervoudigt om te rennen")]       public float RunningMultiplier = 2;
     [Tooltip("De hoogte van de sprong")]                                                 public float JumpHeight = 2f;
     [Tooltip("De sterkte van de zwaartekracht")]                                         public float Gravity = -9.81f;
     [Tooltip("De afstand van raycast om te checken of speler op de grond staat")]        public float GroundCheckDistance = 1.1f;
@@ -44,11 +42,7 @@ public class PlayerMovement : MonoBehaviour
         _moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
         Vector3 _finaleMoveInput = transform.right * _moveInput.x + transform.forward * _moveInput.z;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-            _moveVelocity = _finaleMoveInput.normalized * (MoveSpeed * RunningMultiplier);
-        else
-            _moveVelocity = _finaleMoveInput.normalized * MoveSpeed;
+        _moveVelocity = _finaleMoveInput.normalized * MoveSpeed;
     }
 
     /// <summary>

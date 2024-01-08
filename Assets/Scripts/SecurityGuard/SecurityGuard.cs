@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -205,6 +204,7 @@ public class SecurityGuard : MonoBehaviour
     {
         if (_Other.gameObject.GetComponent<PlayerMovement>())
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("Lose");
         }
     }
